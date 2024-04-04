@@ -1,26 +1,63 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { ChangeEvent, useState } from 'react';
+// import logo from './logo.svg';
 import './App.css';
+import Todo from './components/Todo';
+import Incomplete from './components/Incomplete';
+import Complete from './components/Complete';
 
-function App() {
+export default function App() {
+  const [input, setInput] = useState("");
+  const changeInput = (event:ChangeEvent<HTMLInputElement>) => setInput(event.target.value);
+  
+  const [inComplete, setIncomplete] = useState<string[]>([]);
+  const clickRegister = () => {
+    setIncomplete([...inComplete, input]);
+    setInput("");
+  };
+  const [complete, setComplete] = useState<string[]>([]);
+  const completeBtn = (index:number) => {
+    // 新しいinCompleteの内容を展開して、index番目を削除
+    const newIncompleteContent = [...inComplete];
+    newIncompleteContent.splice(index, 1);
+
+    // 新しいcompleteの内容に削除したものを追加し、inCompleteとcompleteを更新する
+    const newCompleteContent = [...complete, inComplete[index]];
+    setIncomplete(newIncompleteContent);
+    setComplete(newCompleteContent);
+  };
+
+  const inCompleteDelete = (index:number) => {
+    const newTodo = [...inComplete];
+    newTodo.splice(index, 1);
+    setIncomplete(newTodo);
+  };
+
+  const realDelete = (index:number) => {
+    const deleteTodo = [...complete];
+    deleteTodo.splice(index, 1);
+    setComplete(deleteTodo);
+  };
+
+  const returnIncomplete = (index:number) => {
+    const returnTodo = [...complete];
+    returnTodo.splice(index, 1);
+
+    const newReturn = [...inComplete, complete[index]];
+    setComplete(returnTodo);
+    setIncomplete(newReturn);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* まずは全体の見た目を作っていく！ */}
+      
+      <div className='container'>
+        <Todo input={input} changeInput={changeInput} clickRegister={clickRegister} />
+
+        <Incomplete inComplete={inComplete} completeBtn={completeBtn} inCompleteDelete={inCompleteDelete}/>
+
+        <Complete complete={complete} realDelete={realDelete} returnIncomplete={returnIncomplete}/>
+      </div>
+    </>
   );
 }
-
-export default App;
