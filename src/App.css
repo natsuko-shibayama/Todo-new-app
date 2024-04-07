@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.header-style{
+  background-color: rgb(138, 117, 168);
+}
+
+.title{
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 25px;
+  color: white;
+  margin-top: 16px;
+}
+
+.link{
+  color: white;
+  padding-right: 10px;
+  margin-top: 16px;
+
+}
+
+.nav-list{
+  display: flex;
+
+}
+
+.nav-list-item{
+  list-style: none;
+  padding-right: 15px;
+}
