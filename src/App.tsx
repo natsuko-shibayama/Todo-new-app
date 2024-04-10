@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Todo from './components/Todo';
+// import Todo from './components/Todo';
 import Incomplete from './components/Incomplete';
 import Complete from './components/Complete';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
