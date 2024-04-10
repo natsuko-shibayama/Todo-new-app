@@ -1,25 +1,20 @@
-import React, { ChangeEvent } from "react";
-type HouseObj = {
-  changeSelect:(event: ChangeEvent<HTMLSelectElement>) => void,
-  addSelect:() => void
-};
+import React from "react";
+import TodoList from "../components/TodoList";
+import { SelectObj } from "../App";
 
-export default function HouseKeeping ({changeSelect,addSelect}:HouseObj){
+const hkSelect:{name:string, value:string}[] = [
+  {name:"", value:""},
+  {name:"洗濯", value:"洗濯"},
+  {name:"料理", value:"料理"},
+  {name:"買い物", value:"買い物"},
+  {name:"ペットの世話", value:"ペットの世話"},
+  {name:"掃除", value:"掃除"},
+];
+
+export default function HouseKeeping ({changeSelect,addSelect}:SelectObj){
   return(
     <>
-      <div className="pt-5">
-        <h5 className="pb-1">下から選んでTodoリストを登録！</h5>
-        <div className="pb-3">
-          <select onChange={changeSelect} style={{ marginRight:"10px" }}>
-            <option value={"洗濯"}>洗濯</option>
-            <option value={"料理"}>料理</option>
-            <option value={"買い物"}>買い物</option>
-            <option value={"ペットの世話"}>ペットの世話</option>
-            <option value={"掃除"}>掃除</option>
-          </select>
-          <button className='btn btn-primary' onClick={addSelect} >登録！</button>
-        </div>
-      </div>
+      <TodoList todoSelect={hkSelect} changeSelect={changeSelect} addSelect={addSelect}/>
     </>
   );
 };

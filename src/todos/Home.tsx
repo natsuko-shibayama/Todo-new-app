@@ -10,9 +10,7 @@ type HomeObj = {
 export default function Home ({input, changeInput, clickRegister}:HomeObj){
   return(
     <>
-      {/* <div>ホームです！</div> */}
       <Todo input={input} changeInput={changeInput} clickRegister={clickRegister} />
-
     </>
   );
 };
