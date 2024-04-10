@@ -10,21 +10,21 @@ export default function Incomplete({inComplete, completeBtn, inCompleteDelete}:I
   return(
     <>
       <div className='row justify-content-center inCompleteArea'>
-          <div className='col'>
-            <div>
-              <h2>まだ終わってないよ！</h2>
-            </div>
-            <ul>
-              {inComplete.map((todo, index)=> (
-                <li key={index}>{todo}
-                  <button className='btn btn-info' onClick={() => completeBtn(index)} style={{ marginLeft:"10px" }}>終わった！</button>
-                  <button className='btn btn-success' onClick={() => inCompleteDelete(index)} style={{ marginLeft:"10px" }}>一旦なしで。</button>
-                </li>
-              ))}
-
-            </ul>
+        <div className='col'>
+          <div className="pb-1">
+            <h2>未完了のTodoリスト</h2>
           </div>
+          <ul>
+            {inComplete.map((todo, index)=> (
+              <li key={index}>{todo}
+                <button className='btn btn-info' onClick={() => completeBtn(index)} style={{ marginLeft:"10px" }}>終了</button>
+                <button className='btn btn-success' onClick={() => inCompleteDelete(index)} style={{ marginLeft:"10px" }}>削除</button>
+              </li>
+            ))}
+
+          </ul>
         </div>
+      </div>
     </>
   );
 }
