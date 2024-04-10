@@ -1,26 +1,20 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
+import TodoList from "../components/TodoList";
+import { SelectObj } from "../App";
 
-type SelectObj = {
-  changeSelect:(event: ChangeEvent<HTMLSelectElement>) => void,
-  addSelect: () => void
-};
+const studySelect:{name:string, value:string}[] = [
+  {name:"", value:""},
+  {name:"HTML&CSS", value:"HTML&CSS"},
+  {name:"Javascript", value:"Javascript"},
+  {name:"Ruby", value:"Ruby"},
+  {name:"SQL", value:"SQL"},
+  {name:"Git", value:"Git"},
+];
 
 export default function ProgrammingStudy ({changeSelect, addSelect}:SelectObj){
   return(
     <>
-      <div className="pt-5">
-        <h5 className="pb-1">下から選んでTodoリストを登録！</h5>
-        <div className="pb-3">
-          <select onChange={changeSelect} style={{ marginRight:"10px" }}>
-            <option value={"HTML&CSS"}>HTML&CSS</option>
-            <option value={"Javascript"}>Javascript</option>
-            <option value={"Ruby"}>Ruby</option>
-            <option value={"SQL"}>SQL</option>
-            <option value={"Git"}>Git</option>
-          </select>
-          <button className='btn btn-primary' onClick={addSelect} >追加</button>
-        </div>
-      </div>
+      <TodoList todoSelect={studySelect} changeSelect={changeSelect} addSelect={addSelect}/>
     </>
   );
 };

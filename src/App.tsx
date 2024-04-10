@@ -11,6 +11,11 @@ import ProgrammingStudy from './todos/ProgrammingStudy';
 import Training from './todos/Training';
 import Home from './todos/Home';
 
+export type SelectObj = {
+  changeSelect:(event:ChangeEvent<HTMLSelectElement>) => void,
+  addSelect:() => void
+};
+
 export default function App() {
   const [input, setInput] = useState("");
   const [select, setSelect] = useState("");
