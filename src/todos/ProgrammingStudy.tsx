@@ -6,15 +6,19 @@ const studySelect:{name:string, value:string}[] = [
   {name:"", value:""},
   {name:"HTML&CSS", value:"HTML&CSS"},
   {name:"Javascript", value:"Javascript"},
-  {name:"Ruby", value:"Ruby"},
+  {name:"Typescript", value:"Typescript"},
+  {name:"React", value:"React"},
   {name:"SQL", value:"SQL"},
   {name:"Git", value:"Git"},
+  {name:"Command Line", value:"Command Line"},
+  {name:"Ruby", value:"Ruby"},
+  {name:"Ruby on Rails", value:"Ruby on Rails"},
 ];
 
-export default function ProgrammingStudy ({changeSelect, addSelect}:SelectObj){
+export default function ProgrammingStudy ({select,changeSelect, addSelect}:SelectObj){
   return(
     <>
-      <TodoList todoSelect={studySelect} changeSelect={changeSelect} addSelect={addSelect}/>
+      <TodoList select={select} todoSelect={studySelect} changeSelect={changeSelect} addSelect={addSelect}/>
     </>
   );
 };
