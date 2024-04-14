@@ -41,6 +41,10 @@
   background-color: rgb(138, 117, 168);
 }
 
+/* .list-title{
+  pointer-events: none;
+} */
+
 .title{
   font-size: 30px;
   font-weight: bold;

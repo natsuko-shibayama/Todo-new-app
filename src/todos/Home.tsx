@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from "react";
 import Todo from "../components/Todo";
+// import { TodoType } from "../App";
 
 type HomeObj = {
   input:string, 

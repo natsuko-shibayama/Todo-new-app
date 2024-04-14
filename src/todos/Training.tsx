@@ -13,10 +13,10 @@ const trainingSelect :{name:string, value:string}[] = [
   {name:"ヒートトレーニング", value:"ヒートトレーニング"},
 ];
 
-export default function Training ({changeSelect,addSelect}:SelectObj){
+export default function Training ({select, changeSelect,addSelect}:SelectObj){
   return(
     <>
-      <TodoList todoSelect={trainingSelect} changeSelect={changeSelect} addSelect={addSelect}/>
+      <TodoList select={select} todoSelect={trainingSelect} changeSelect={changeSelect} addSelect={addSelect}/>
     </>
   );
 };
